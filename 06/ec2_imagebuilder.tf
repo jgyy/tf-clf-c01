@@ -107,17 +107,3 @@ resource "aws_key_pair" "deployer" {
 resource "aws_sns_topic" "user" {
   name = "user-updates-topic"
 }
-
-resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-jgyy"
-
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
-}
-
-resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.b.id
-  acl    = "private"
-}
